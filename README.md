@@ -6,8 +6,11 @@
 
 FUCK_AWD工具cmd运行命令：python fuck_awd_main.py  即可
 
-如果CMD乱码可以解压 ansi189-bin.zip 运行对应电脑兼容的版本 cmd命令ansicon.exe -i
+如果CMD颜色乱码可以解压 ansi189-bin.zip 运行对应电脑兼容的版本 cmd命令ansicon.exe -i
+# 工具介绍
 
+攻击模块：工具目前支持单一目标，批量目标攻击、批量执行命令、预设置三种类型后门木马提供选择(一句话/不死马/蠕虫马)，执行完毕批量保存执行结果、非自定义/自定义后门存活监测等。
+防御模块：支持目录树生成、文件一键备份、文件监控、PHP文件数目检测、PHP危险函数检测、一键PHP文件上WAF等。
 # 工具效果
 
 ![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/45d8f3c6-fd49-4762-a3d9-f50d2acb72c1)
