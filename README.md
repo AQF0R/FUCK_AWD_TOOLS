@@ -8,7 +8,15 @@ FUCK_AWD工具cmd运行命令：python fuck_awd_main.py  即可
 
 如果CMD乱码可以解压 ansi189-bin.zip 运行对应电脑兼容的版本 cmd命令ansicon.exe -i
 
-# 工具介绍
+# 工具效果
+
+![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/45d8f3c6-fd49-4762-a3d9-f50d2acb72c1)
+![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/a31e5939-b471-423f-9283-7ba5e311fe12)
+![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/c3bd87db-e46d-44fb-b243-8296509d1768)
+![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/5927f027-c908-4194-8046-109b646d3963)
+![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/0c175494-5e27-47e9-ae32-355dcf38f6b1)
+![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/b0f95d57-26ba-49af-a76a-b2d687f66761)
+
 
 
 ## 拓展知识
