@@ -13,7 +13,7 @@ FUCK_AWD工具cmd运行命令：python fuck_awd_main.py  即可
 ![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/45d8f3c6-fd49-4762-a3d9-f50d2acb72c1)
 ![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/a31e5939-b471-423f-9283-7ba5e311fe12)
 ![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/c3bd87db-e46d-44fb-b243-8296509d1768)
-![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/5927f027-c908-4194-8046-109b646d3963)
+![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/5b895f1f-1bb2-49a5-9a4c-db31917de88f)
 ![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/0c175494-5e27-47e9-ae32-355dcf38f6b1)
 ![图片](https://github.com/AQF0R/FUCK_AWD_TOOLS/assets/120232326/b0f95d57-26ba-49af-a76a-b2d687f66761)
 
@@ -22,11 +22,8 @@ FUCK_AWD工具cmd运行命令：python fuck_awd_main.py  即可
 ## 拓展知识
 内存马查杀：
 1.ps auxww|grep shell.php 找到pid后杀掉进程就可以，你删掉脚本是起不了作用的，因为php执行的时候已经把脚本读进去解释成opcode运行了
-
 2.重启php等web服务
-
 3.用一个ignore_user_abort(true)脚本，一直竞争写入（断断续续）。usleep要低于对方不死马设置的值。
-
 4.创建一个和不死马生成的马一样名字的文件夹。
 
 修改curl：
@@ -34,6 +31,6 @@ alias curl='echo fuckoff'  较低权限
 chmod -x curl  较高权限
 /usr/bin  curl路径
 
-apache日志路径
+apache日志路径：
 /var/log/apache2/
 /usr/local/apache2/logs
