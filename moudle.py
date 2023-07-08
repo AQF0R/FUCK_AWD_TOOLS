@@ -24,7 +24,7 @@ ua = [
 ]
 rand_num = random.randint(1, len(ua))
 header = {}
-header["User-Agent:"] = ua[rand_num]
+header["User-Agent"] = ua[rand_num - 1]
 
 def get_Command_Control(url, url_PHPpath,phpfile_Name, phpfile_Key, command):       #实现连接GET方法shell并执行命令、回显
     try:
