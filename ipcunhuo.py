@@ -22,7 +22,7 @@ ua = [
 ]
 rand_num = random.randint(1, len(ua))
 header = {}
-header["User-Agent:"] = ua[rand_num]
+header["User-Agent"] = ua[rand_num - 1]
 echo = color_print()
 url_lst = []
 def ip(ip_address, url_method):
