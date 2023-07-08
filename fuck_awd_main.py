@@ -31,7 +31,7 @@ ua = [
 ]
 rand_num = random.randint(1, len(ua))
 header = {}
-header["User-Agent:"] = ua[rand_num]
+header["User-Agent"] = ua[rand_num - 1]
 
 help = """
     ----------------------------------后门木马选择----------------------------------------------------
